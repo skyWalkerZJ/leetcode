@@ -10,19 +10,19 @@ import java.util.Queue;
  * @Description:
  * @date: 2022/3/1717:01
  */
-class Node {
+class node {
     public int val;
-    public Node left;
-    public Node right;
-    public Node next;
+    public node left;
+    public node right;
+    public node next;
 
-    public Node() {}
+    public node() {}
 
-    public Node(int _val) {
+    public node(int _val) {
         val = _val;
     }
 
-    public Node(int _val, Node _left, Node _right, Node _next) {
+    public node(int _val, node _left, node _right, node _next) {
         val = _val;
         left = _left;
         right = _right;
@@ -31,16 +31,16 @@ class Node {
 }
 public class 填充每个节点的下一个右侧节点指针2 {
     //层次遍历
-    public Node connect(Node root) {
+    public node connect(node root) {
         if(root==null) return null;
-        Queue<Node> queue=new LinkedList<>();
+        Queue<node> queue=new LinkedList<>();
         queue.offer(root);
         while (!queue.isEmpty())
         {
             int n=queue.size();
-            Node last=null;
+            node last=null;
             for (int i = 1; i <= n; i++) {
-                Node poll = queue.poll();
+                node poll = queue.poll();
                 if(poll.left!=null) queue.offer(poll.left);
                 if(poll.right!=null) queue.offer(poll.right);
                 if(i!=1) last.next=poll;
